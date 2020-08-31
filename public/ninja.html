@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ninja Javascript Test</title>
+    
+</head>
+<body>
+    <p id="hello">Hello World</p>
+    <script>
+        if(document.getElementById("hello")) {
+            document.getElementById("hello").innerHTML = "Hello World  - this was inserted using JavaScript";
+        }
+
+        //--- 아래는 심심해서 그냥 만들어본 lotto 번호 발생기...
+        const lottoNumbers = [];
+        let arr = [];
+        function lotto(min, max) {
+            for(let i = 0; i < 6; i++) {
+                while(arr.length < 6) {
+                    var number = Math.floor(Math.random() * (max - min + 1)) + min;
+                    if(!arr.includes(number))
+                        arr.push(number);
+                }
+                // 오름차순
+                // return arr.sort(function(a, b) {
+                //     return a - b;
+                // });
+                lottoNumbers.push(arr.sort(function(a, b) {
+                     return a - b;
+                }));
+                arr = [];
+            }
+            return lottoNumbers;
+        }
+
+        function makeData(array) {
+            const data = [];
+            for(const element of array) {
+                data.push('<li>'+ element +'</li>');
+                //console.log(data);
+                return data;
+            }
+        }
+
+        const result = lotto(1, 45);
+        console.log(result);
+        //const data = makeData(result);
+        //console.log(data);
+
+        //document.getElementById('ul').innerHTML(data);
+
+    </script>
+
+    <h1>로또 번호 발생기</h1>
+    <div id="ul">
+        
+    </div>
+
+</body>
+</html>
