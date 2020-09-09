@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <!-- grid-template-columns: 150px 1fr : 첫번째인 NAVIGATION div 인 고정값 150px 를 갖게되고 -->
+    <!-- grid-template-columns: 150px 1fr : 두번째인 ARTICLE div 는 가변적으로 변경된 값을 갖게 된다. -->
+    <style>
+        #grid {
+            border : 5px solid pink;
+            display: grid;
+            grid-template-columns: 150px 1fr;
+        }
+        div {
+            border : 5px solid gray;
+        }
+    </style>
+</head>
+<body>
+    <!-- div 는 block element 로 화면 전체를 쓴다. 그래서 자동 줄 바꿈이 된다. -->
+    <!-- div 와 같은 목적으로 사용하는 span inline element 를 사용한다. -->
+    <div id="grid">
+        <div>NAVIGATION</div>
+        <div>ARTICLE</div>
+    </div>
+</body>
+</html>
